@@ -1,11 +1,9 @@
 import Head from 'next/head';
-import { getLatestPosts, getPrimaryMenu } from '../lib/api';
-import Header from '../components/Header';
+import { getLatestPosts } from '../lib/api';
 
-export default function Home({ latestPosts: { edges }, menuItems }) {
+export default function Home({ latestPosts: { edges } }) {
   return (
     <>
-      <Header menuItems={menuItems} />
       <div className='grid grid-cols-3 gap-4 p-5'>
         <Head>
           <title>Create Next App</title>
@@ -39,8 +37,7 @@ export default function Home({ latestPosts: { edges }, menuItems }) {
 
 export async function getStaticProps() {
   const latestPosts = await getLatestPosts();
-  const menuItems = await getPrimaryMenu();
   return {
-    props: { latestPosts, menuItems },
+    props: { latestPosts },
   };
 }
