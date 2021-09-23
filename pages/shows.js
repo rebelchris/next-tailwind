@@ -3,7 +3,7 @@ function Shows({ shows }) {
     <div className='grid min-h-screen grid-cols-5 gap-4 p-5'>
       {shows.top.map((show) => (
         <div
-          key='show.id'
+          key={show.id}
           className='max-w-xs my-2 overflow-hidden rounded shadow-lg '
         >
           <img
