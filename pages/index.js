@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import { getLatestPosts } from '../lib/api';
 import { useState } from 'react';
+import { BsGrid3X3GapFill, BsList } from 'react-icons/bs';
 
 export default function Home({ latestPosts: { edges } }) {
   const [toggleViewMode, setToggleViewMode] = useState(false);
@@ -16,7 +17,7 @@ export default function Home({ latestPosts: { edges } }) {
           className='px-4 py-2 font-bold text-white bg-blue-500 rounded-full hover:bg-blue-700'
           onClick={() => setToggleViewMode(!toggleViewMode)}
         >
-          {toggleViewMode ? 'grid' : 'list'}
+          {toggleViewMode ? <BsGrid3X3GapFill /> : <BsList />}
         </button>
       </div>
       <div className={`grid grid-cols-${toggleViewMode ? '1' : '3'} gap-4 p-5`}>
